@@ -17,15 +17,15 @@ pipeline{
         }
         stage ('Deployments'){
             parallel{
-                stage('Deploy to staging'){
+                stage('Deploy to staging...'){
                     steps {
                         echo "Deploy"
                         sh "copy **/target/*.war /opt/tomcat/webapps"
                         }
                     }
-                    stage ('Deploy to prod'){
+                    stage ('Deploy to prod...'){
                     steps {
-                        echo "Build step"
+                        echo "Build step..."
                         sh "copy **/target/*.war /opt/tomcat-prod/webapps"
                     }
                 }
