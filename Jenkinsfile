@@ -5,7 +5,7 @@ pipeline{
     }
     stages{
         stage ('Build'){
-            steps{
+            steps {
                 sh 'mvn clean package'
             }
             post {
@@ -16,8 +16,8 @@ pipeline{
             }
         }
         stage ('Deployments'){
-            parallel{
-                stage('Deploy to staging...'){
+            parallel {
+                stage ('Deploy to staging...'){
                     steps {
                         echo "Deploy"
                         sh "copy **/target/*.war /opt/tomcat/webapps"
@@ -31,4 +31,5 @@ pipeline{
                 }
             }
         }
+    }
     }
