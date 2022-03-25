@@ -12,16 +12,20 @@ pipeline{
                 }
             }
         }
-        stage ('Build2'){
-            steps {
-                echo "Build step"
-            }
-        }
         stage ('Deploy to staging'){
             steps{
                 echo "Deploy"
                 build job:'deploy_to_staging'
             }
         }
+        stage ('Deploy to staging'){
+            steps {
+                 echo "Build step"
+                 timeout(time: 5, unit:'HOURS'){
+                 input message:'Approve Prod deployment?'
+                 }
+                 build job:'deploy_to_prod'
+                 }
+            }
     }
 }
