@@ -20,13 +20,13 @@ pipeline{
                 stage ('Deploy to staging...'){
                     steps {
                         echo "Deploy"
-                        sh "copy **/target/*.war /opt/tomcat/webapps"
+                        sh "cp **/target/*.war /opt/tomcat/webapps"
                         }
                     }
                     stage ('Deploy to prod...'){
                     steps {
                         echo "Build step..."
-                        sh "copy **/target/*.war /opt/tomcat-prod/webapps"
+                        sh "cp **/target/*.war /opt/tomcat-prod/webapps"
                     }
                 }
             }
