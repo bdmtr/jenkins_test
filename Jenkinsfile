@@ -17,9 +17,10 @@ pipeline{
                 echo "Build step"
             }
         }
-        stage ('Deploy'){
+        stage ('Deploy to staging'){
             steps{
                 echo "Deploy"
+                build job:'deploy_to_staging'
             }
         }
     }
