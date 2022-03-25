@@ -26,9 +26,6 @@ pipeline{
                     stage ('Deploy to prod'){
                     steps {
                         echo "Build step"
-                        timeout(time: 5, unit:'HOURS'){
-                        input message:'Approve Prod deployment?'
-                        }
                         sh "copy **/target/*.war /opt/tomcat-prod/webapps"
                     }
                 }
