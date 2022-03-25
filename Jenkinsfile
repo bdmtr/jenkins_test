@@ -18,7 +18,7 @@ pipeline{
                 build job:'deploy_to_staging'
             }
         }
-        stage ('Deploy to staging'){
+        stage ('Deploy to prod'){
             steps {
                  echo "Build step"
                  timeout(time: 5, unit:'HOURS'){
